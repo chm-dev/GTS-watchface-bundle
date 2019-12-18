@@ -36,7 +36,7 @@ Instructions are below.
 
 Once loaded it should look like so:
 
-![image-20191218003001077](./assets/ editor.png)
+![](./assets/editor.png)
 
 7.  Edit watchface as usual.
 8.  When done, save JSON and all the assets and pack it all back to bin by dragging directory with watchface files onto `pack.cmd`:
