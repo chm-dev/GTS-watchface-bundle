@@ -53,7 +53,9 @@ Once loaded it should look like so:
 
 Project consists of 3 elements.
 
-Decompiler created in python, my scripts in nodejs
+Decompiler created in python, my scripts in nodejs and watchface editor.
+
+These instructions will result in making self-contained bundle, just as one in releases.
 
 ### Python watchface decompiler:
 
