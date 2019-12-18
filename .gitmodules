@@ -1,0 +1,3 @@
+[submodule "src/utils/watchfaceEditor"]
+	path = src/utils/watchfaceEditor
+	url = https://github.com/chm-dev/watchfaceEditor

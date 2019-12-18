@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image creator</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Image creator from font file">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+    <link rel="manifest" href="assets/icon/manifest.json">
+    <link rel="mask-icon" href="assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icon/favicon.ico">
+    <meta name="msapplication-config" content="assets/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link href="assets/uikit/uikit.min.css" rel="stylesheet">
+    <script src="assets/uikit/uikit.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Share+Tech+Mono|Ubuntu+Mono&amp;subset=cyrillic" rel="stylesheet">
+    <style>
+        .spanimage {
+            -webkit-font-smoothing: none;
+            line-height: 1;
+            vertical-align: middle;
+            display: inline-block;
+            position: relative
+        }
+        
+        .imagecover {
+            margin: 5px;
+            line-height: 1;
+            text-align: center;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        
+         ::-webkit-scrollbar-button:start:decrement,
+         ::-webkit-scrollbar-button:end:increment,
+         ::-webkit-scrollbar-button:vertical:start:increment,
+         ::-webkit-scrollbar-button:vertical:end:decrement {
+            display: none;
+        }
+        
+         ::-webkit-scrollbar-track-piece {
+            background-color: rgba(51, 153, 255, 0.3);
+            border-radius: 3px;
+        }
+        
+         ::-webkit-scrollbar-thumb:vertical {
+            height: 50px;
+            background-color: rgba(51, 153, 255, 0.75);
+            border-radius: 3px;
+        }
+        
+        canvas {
+            -webkit-font-smoothing: none;
+            image-rendering: pixelated;
+            /* Older versions of FF */
+            image-rendering: -moz-crisp-edges;
+            /* FF 6.0+ */
+            image-rendering: -webkit-optimize-contrast;
+            /* Webkit (non standard naming) */
+            image-rendering: -o-crisp-edges;
+            /* OS X & Windows Opera (12.02+) */
+            image-rendering: crisp-edges;
+            /* Possible future browsers. */
+            -ms-interpolation-mode: nearest-neighbor;
+            /* IE (non standard naming) */
+        }
+        
+        #images canvas {
+            margin: 5px;
+        }
+    </style>
+    <style></style>
+</head>
+
+<body>
+    <header class="uk-section-primary uk-preserve-color">
+        <nav class="uk-navbar-container" style="background: linear-gradient(to left, #28a5f5, #1e87f0);">
+            <div class="uk-container uk-container-expand">
+                <div uk-navbar>
+                    <div class="uk-navbar-left">
+                        <a class="uk-navbar-item uk-logo" href="https://v1ack.github.io/watchfaceEditor/" style="color: white">WatchfaceEditor</a>
+                        <a class="uk-navbar-item" style="color: white" href="#modal-donate" uk-toggle data-translate-id="donate">Donate</a>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <a class="uk-navbar-item" style="color: white" href="#modal-settings" uk-toggle>Language</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="uk-container uk-margin-top">
+        <div class="uk-grid uk-grid-small">
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="font_size">Font size</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="number" placeholder="Font size" min="5" value="35" id="textsize">
+                </div>
+            </div>
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="first_image_index">First image index</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="number" placeholder="First image index" id="imageindex" min="0" value="0">
+                </div>
+            </div>
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="font_file">Font file</label>
+                <div uk-form-custom="target: true">
+                    <input type="file" id="fontfile">
+                    <input class="uk-input" type="text" placeholder="Select font file">
+                </div>
+            </div>
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="text">Text</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="text" placeholder="Words separated by ','" id="text">
+                </div>
+            </div>
+            <div style="margin-top: 23px;">
+                <button id="download" class="uk-button uk-button-primary" data-translate-id="download">Download</button>
+            </div>
+        </div>
+        <div class="uk-grid uk-grid-small">
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="height">Height</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="number" placeholder="Image height" id="imageheight" min="0">
+                </div>
+            </div>
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="width">Width</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="number" placeholder="Image width" id="imagewidth" min="0">
+                </div>
+            </div>
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="top_offset">Top offset</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="number" placeholder="Top offset" id="imageoffset">
+                </div>
+            </div>
+            <div class="uk-form-width-medium">
+                <label class="uk-form-label" data-translate-id="color_limit">Color limir for converting</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="number" placeholder="Color limir" id="color_limit" max="255" min="0" value="127">
+                </div>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-form-label" data-translate-id="font_color">Font color</div>
+            <div class="uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" name="color" value="#000000" checked> <span data-translate-id="color_black">Black</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#FFFFFF"> <span data-translate-id="color_white">White</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#00FF00"> <span data-translate-id="color_green">Green</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#FFFF00"> <span data-translate-id="color_yellow">Yellow</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#0000FF"> <span data-translate-id="color_blue">Blue</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#00FFFF"> <span data-translate-id="color_cyan">Cyan</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#FF0000"> <span data-translate-id="color_red">Red</span></label>
+                <label><input class="uk-radio" type="radio" name="color" value="#FF00FF"> <span data-translate-id="color_purple">Purple</span></label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-form-label" data-translate-id="background_color">Background color</div>
+            <div class="uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#000000"> <span data-translate-id="color_black">Black</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#FFFFFF" checked> <span data-translate-id="color_white">White</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#00FF00"> <span data-translate-id="color_green">Green</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#FFFF00"> <span data-translate-id="color_yellow">Yellow</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#0000FF"> <span data-translate-id="color_blue">Blue</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#00FFFF"> <span data-translate-id="color_cyan">Cyan</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#FF0000"> <span data-translate-id="color_red">Red</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="#FF00FF"> <span data-translate-id="color_purple">Purple</span></label>
+                <label><input class="uk-radio" type="radio" name="bgcolor" value="rgba(0,0,0,0)"> <span data-translate-id="color_transperent">Transperent</span></label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-form-label" data-translate-id="font">Font</div>
+            <div class="uk-grid-small uk-child-width-auto uk-grid">
+                <label style="font-family: 'Share Tech Mono'"><input class="uk-radio" type="radio" name="fontfamily" value="Share Tech Mono" checked> Share Tech Mono</label>
+                <label style="font-family: 'Roboto Mono'"><input class="uk-radio" type="radio" name="fontfamily" value="Roboto Mono"> Roboto Mono</label>
+                <label style="font-family: 'Ubuntu Mono'"><input class="uk-radio" type="radio" name="fontfamily" value="Ubuntu Mono"> Ubuntu Mono</label>
+                <label style="font-family: monospace"><input class="uk-radio" type="radio" name="fontfamily" value="monospace"> Monospace</label>
+                <label style="font-family: customfont"><input class="uk-radio" type="radio" name="fontfamily" value="customfont"> <span data-translate-id="custom">Custom font</span></label>
+            </div>
+        </div>
+        <div id="images" class="uk-placeholder uk-text-center uk-grid uk-grid-collapse" style="background-color: #edf8ff;"></div>
+        <div id="hidden-images" class="uk-text-center uk-grid uk-grid-collapse" style="opacity: 0"></div>
+    </main>
+    <footer>
+        <p class="uk-text-center uk-text-meta" style="margin-top: 15px">designed by vlack <span style="margin-left: 10px;margin-right: 10px" data-translate-id="translated_by"></span>Github: <a href="https://github.com/v1ack/Bip-Watchface-View" target="_blank">v1ack</a><span style="margin-left: 10px"></span>Telegram:
+            <a href="https://t.me/vlack" target="_blank">@vlack</a><span style="margin-left: 10px"></span><a href="#modal-donate" uk-toggle style="color: #2CB3FC" data-translate-id="donate">donate</a></p>
+    </footer>
+    <div id="modal-donate" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title" data-translate-id="donate">Donate</h2>
+            <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=Watchface%20editor&targets-hint=&default-sum=100&button-text=14&payment-type-choice=on&comment=on&hint=&successURL=&quickpay=shop&account=41001928688597" width="450" height="278"
+                frameborder="0" allowtransparency="true" scrolling="no" class="uk-container"></iframe>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button" data-translate-id="close">Close</button>
+            </p>
+        </div>
+    </div>
+    <div id="modal-settings" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Language</h2>
+            <div class="uk-grid-small uk-child-width-auto uk-grid">
+                <label class="uk-link" id="lang-ru">Русский</label>
+                <label class="uk-link" id="lang-en">English</label>
+                <label class="uk-link" id="lang-zh">中文</label>
+                <label class="uk-link" id="lang-tr">Turkish</label>
+                <label class="uk-link" id="lang-cs">Česky</label>
+            </div>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button" data-translate-id="close">Close</button>
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/image_creator.js"></script>
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/FileSaver.min.js"></script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/46845507" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+
+</html>
