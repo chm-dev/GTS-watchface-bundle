@@ -43,7 +43,7 @@ Once loaded it should look like so:
 
 ![](./assets/pack.gif)
 
-9.  Your watchface with animated and static thumbs are in `!out` folder
+9.  Your watchface and images (both animated gif and static png) are in `!out` folder
 
 # Building
 
@@ -77,7 +77,7 @@ Install auto-py-to-exe
 (buildEnv) $ pip install auto-py-to-exe
 ```
 
-Start it with `autopytoexe.exe` and your browser should open gui in your browser.
+Start it with `autopytoexe.exe` (which should be in your path already) and your browser should open gui in your browser.
 Create single file executable from python project at:
 
 `\src\utils\pythonSrc\`
