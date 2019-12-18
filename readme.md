@@ -83,7 +83,7 @@ Install auto-py-to-exe
 (buildEnv) $ pip install auto-py-to-exe
 ```
 
-Start it with `autopytoexe.exe` (which should be in your path already) and your browser should open gui in your browser.
+Start it with `autopytoexe.exe` (which should be in your path already) and your browser should open gui.
 Create single file executable from python project at:
 
 `\src\utils\pythonSrc\`
