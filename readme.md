@@ -21,6 +21,7 @@ Complete, compiled and ready to use package is in releases, but you can build it
 Instructions are below.
 
 ## How to use
+0. Download bundle from releases tab or by [clicking here](https://github.com/chm-dev/GTS-watchface-bundle/releases/download/firstRelease/GTS-watchface-bundle.zip).
 
 1.  Unzip the downloaded package from release wherever you want.
 
