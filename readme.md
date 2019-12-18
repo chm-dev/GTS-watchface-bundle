@@ -13,7 +13,7 @@ The bundle includes
   * you can get it on telegram by contacting @IlGruppoTesterBot
 
 * watchfaceEditor (forked from https://github.com/v1ack/watchfaceEditor) packed as desktop electron app and with experimental support for GTS watchfaces
- * if you want just editor here is [separate repo](https://github.com/chm-dev/watchfaceEditor)
+  * if you want just editor here is [separate repo](https://github.com/chm-dev/watchfaceEditor)
 * scripts and folder structure / workflow for easy and efficient work
 
 Please note, however - I rushed this thing asap and bugs are certain. Also using nodejs-portable for something that probably should be just bat files is probably bad, but when I thought about all those filenames and path transformations that are taking place, I really didn't want to lose three days over this.
