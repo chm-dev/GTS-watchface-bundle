@@ -26,7 +26,7 @@ Instructions are below.
 
 3.  To unpack bin file just drag it onto unpack.cmd file:
 
-![](C:\Dev\AmazfitGTS\assets\unpack.gif)
+![](./assets/unpack.gif)
 
 4.  Next go to `/utils/GTS-watchfaceeditor-x64` and start `watchfaceeditor.exe`
 
@@ -36,12 +36,12 @@ Instructions are below.
 
 Once loaded it should look like so:
 
-![image-20191218003001077](C:\Users\chm\AppData\Roaming\Typora\typora-user-images\image-20191218003001077.png)
+![image-20191218003001077](./assets/ editor.png)
 
 7.  Edit watchface as usual.
 8.  When done, save JSON and all the assets and pack it all back to bin by dragging directory with watchface files onto `pack.cmd`:
 
-![](C:\Dev\AmazfitGTS\assets\pack.gif)
+![](./assets/pack.gif)
 
 9.  Your watchface with animated and static thumbs are in `!out` folder
 
@@ -88,7 +88,7 @@ and compile it to
 
 It should look something like this:
 
-![autopytoexe](C:\Dev\AmazfitGTS\assets\autopytoexe.jpg)
+![autopytoexe](./assets/autopytoexe.jpg)
 
 Once done you should have main.exe in python-executable folder.
 
@@ -104,8 +104,12 @@ Run `nodejs-portable.exe` in `\src\utils\node-portable` and when prompted select
 
 You can select older version of node to keep the size low as the scripts are using basic node libs.
 
-![nodejs-portable](C:\Dev\AmazfitGTS\assets\nodejs-portable.jpg)
+![nodejs-portable](./assets/nodejs-portable.jpg)
 
 And you are ready to go.
 
-If you want watchfaceEditor you can grab it from here: https://github.com/chm-dev/watchfaceEditor
+If you want watchfaceEditor you can grab it from here: https://github.com/chm-dev/watchfaceEditor or clone this repository with with submodule:
+
+```powershell
+$ git clone --recurse-submodules https://github.com/chm-dev/GTS-watchface-bundle.git
+```
