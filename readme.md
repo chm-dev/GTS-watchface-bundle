@@ -24,7 +24,7 @@ Instructions are below.
 ## How to use
 0. Download bundle from releases tab or by [clicking here](https://github.com/chm-dev/GTS-watchface-bundle/releases/download/firstRelease/GTS-watchface-bundle.zip).
 
-1.  Unzip the downloaded package from release wherever you want.
+1.  Unzip it wherever you want.
 
 2.  Get some bins to work with: ie https://amazfitwatchfaces.com/gts/ and put them inside the folder `/faces` next to files `pack.cmd`, `unpack.cmd` and `!out` folder.
 
