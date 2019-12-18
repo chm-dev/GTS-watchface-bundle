@@ -16,7 +16,9 @@ The bundle includes
   * if you want just editor here is [separate repo](https://github.com/chm-dev/watchfaceEditor)
 * scripts and folder structure / workflow for easy and efficient work
 
-Please note, however - I rushed this thing asap and bugs are certain. Also using nodejs-portable for something that probably should be just bat files is probably bad, but when I thought about all those filenames and path transformations that are taking place, I really didn't want to lose three days over this.
+Please note, however - I rushed this thing asap and bugs are certain. 
+
+Also using nodejs-portable for something that could probably be just bat files is bad, but when I thought about all those filenames and path transformations that are taking place, I really didn't want to lose three days over this.
 
 Complete, compiled and ready to use package is in releases, but you can build it yourself for the most part, if you want.
 Instructions are below.
