@@ -4,11 +4,13 @@ Tools for editing watchfaces are all over the place.
 
 This here is bundle with simple workflow so we can focus on actual creative process.
 
+**Note: I am not an author of these tools. I have just compiled it into single bundle, added custom scripts to automate the process and modified a little so it can be used with GTS. Authors (as to my knowladge) are named below**
+
 The bundle includes
 
 * decompiler / compiler and compress / decompress utility from [https://telegram.me/GizChinaIt](tg://resolve?domain=GizChinaIt)
 
-* you can get it on telegram by contacting @IlGruppoTesterBot
+  * you can get it on telegram by contacting @IlGruppoTesterBot
 
 * watchfaceEditor (forked from https://github.com/v1ack/watchfaceEditor) packed as desktop electron app and with experimental support for GTS watchfaces
 * scripts and folder structure / workflow for easy and efficient work
