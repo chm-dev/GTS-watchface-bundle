@@ -8,7 +8,7 @@ This here is bundle with simple workflow so we can focus on actual creative proc
 
 The bundle includes
 
-* decompiler / compiler and compress / decompress utility from [https://telegram.me/GizChinaIt](tg://resolve?domain=GizChinaIt)
+* decompiler / compiler and compress / decompress utility from https://telegram.me/GizChinaIt
 
   * you can get it on telegram by contacting @IlGruppoTesterBot
 
