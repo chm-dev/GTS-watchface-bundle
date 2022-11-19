@@ -28,7 +28,7 @@
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
     "webpack": "^4.39.0",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.12",
     "electron": "^7.1.5"
   }
 }
